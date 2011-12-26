@@ -1,0 +1,10 @@
+name: MFRedstoneDetector
+main: fr.mf.cannabeuh.MFRedstoneDetector.MFRedstoneDetector
+version: 0.01
+website: http://mine-france.fr
+authors:
+- cannabeuh 
+commands:
+  mfredstone:
+    description: Analyse redstone
+    usage: /<command>
