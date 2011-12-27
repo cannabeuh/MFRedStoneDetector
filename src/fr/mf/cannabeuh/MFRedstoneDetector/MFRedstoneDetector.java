@@ -1,7 +1,7 @@
 package fr.mf.cannabeuh.MFRedstoneDetector;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MFRedstoneDetector extends JavaPlugin {
 	public Boolean notif = false;
-	Map <Player, Player> MapNotify = new HashMap <Player, Player>();
+	Set <Player> MapNotify = new HashSet <Player>();
 	public void onDisable() {
 		 System.out.println("[MINE-FRANCE] Detecteur de redstone DESACTVER");
 	}
@@ -30,7 +30,7 @@ public class MFRedstoneDetector extends JavaPlugin {
 			Player p = (Player) sender;
 			if(p.isOp()){
 				if(command.equals("mfredstone")){
-					if(MapNotify.containsKey(p)){
+					if(MapNotify.contains(p)){
 						MapNotify.remove(p);
 						if(MapNotify.size()<1){
 							p.sendMessage("Anti-boucle OK.");
@@ -39,7 +39,7 @@ public class MFRedstoneDetector extends JavaPlugin {
 						p.sendMessage("Notification redstone desactivé.");
 						return true;
 					}else{
-						MapNotify.put(p, p);
+						MapNotify.add(p);
 						notif=true;
 						p.sendMessage("Notification redstone activé.");
 						return true;

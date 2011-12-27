@@ -9,7 +9,7 @@ public class MFQuitRedstone extends PlayerListener {
 		 plugin = evel;
 	}
 	public void onPlayerQuit (PlayerQuitEvent event){
-		if(plugin.MapNotify.containsKey(event.getPlayer())){
+		if(plugin.MapNotify.contains(event.getPlayer())){
 			plugin.MapNotify.remove(event.getPlayer());
 		}
 	}

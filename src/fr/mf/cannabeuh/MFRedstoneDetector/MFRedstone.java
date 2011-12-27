@@ -1,7 +1,5 @@
 package fr.mf.cannabeuh.MFRedstoneDetector;
 
-import java.util.Map.Entry;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockListener;
 import org.bukkit.event.block.BlockRedstoneEvent;
@@ -13,8 +11,8 @@ public class MFRedstone extends BlockListener {
 	}
 	public void onBlockRedstoneChange(BlockRedstoneEvent event){
 		if(plugin.notif.equals(true)){
-			for (Entry<Player, Player> entity : plugin.MapNotify.entrySet()) {
-				Player p=entity.getKey();
+			for (Player entity : plugin.MapNotify) {
+				Player p=entity;
 				if(p.isOnline()){
 					p.sendMessage("world : "+event.getBlock().getLocation().getWorld().getName()+
 					  "   x : "+event.getBlock().getLocation().getBlockX()+
